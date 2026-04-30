@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "title": "John Anderson | Product Engineer",
+    "description": "A bold editable portfolio site with an admin studio, project management, and theme controls."
+  },
+  "brand": {
+    "name": "John Anderson",
+    "mark": "JA",
+    "role": "Product Engineer and Frontend Systems Builder",
+    "location": "Remote / Worldwide",
+    "availability": "Open for selected freelance work",
+    "email": "hello@johnanderson.dev",
+    "intro": "I design and ship polished portfolio sites, launch pages, and internal tools that feel deliberate from the first screen to the last detail."
+  },
+  "hero": {
+    "eyebrow": "Portfolio studio with a real backend",
+    "title": "Build a portfolio that is easy to update and hard to ignore.",
+    "description": "This rebuild turns WowFolio from a static HTML template into a small full-stack portfolio system. The public site renders from structured content, projects can be added from an admin studio, and the full visual direction can be changed through theme tokens instead of editing raw CSS everywhere.",
+    "primaryCtaLabel": "Explore projects",
+    "primaryCtaHref": "#projects",
+    "secondaryCtaLabel": "Start a conversation",
+    "secondaryCtaHref": "#contact",
+    "spotlightTitle": "Current focus",
+    "spotlightText": "Designing portfolio experiences with stronger visual direction and cleaner systems underneath: reusable data, persistent content, and enough range to avoid the stock developer-template look.",
+    "spotlightTags": [
+      "Theme controls",
+      "Project management",
+      "Contact inbox",
+      "Responsive layout"
+    ],
+    "stats": [
+      {
+        "value": "18+",
+        "label": "Projects launched"
+      },
+      {
+        "value": "6",
+        "label": "Years shipping for the web"
+      },
+      {
+        "value": "24h",
+        "label": "Typical response window"
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "A sharper portfolio needs sharper systems behind it.",
+    "paragraphs": [
+      "The original template gave you a clean static page, but every real change still meant editing markup by hand. That becomes friction the moment you want to add new work, rewrite your positioning, or change the tone of the site without touching each section individually.",
+      "This version keeps the footprint small but makes the system practical. Content lives in JSON, the frontend pulls from an API, and the admin studio lets you manage hero copy, section content, socials, contact information, projects, and color tokens from one place.",
+      "The visual design also changed completely: stronger typography, layered gradients, glass surfaces, sharper spacing, and a palette model that controls page, surface, border, text, and dual-accent colors separately."
+    ],
+    "cards": [
+      {
+        "title": "Content control",
+        "description": "Edit profile copy, sections, skills, project cards, and social links from the admin studio."
+      },
+      {
+        "title": "Theme control",
+        "description": "Drive the whole interface with theme tokens for surfaces, text, borders, and accent pairs instead of one color picker."
+      },
+      {
+        "title": "Practical backend",
+        "description": "Persist projects and contact submissions locally in JSON through a small Express API that is easy to run anywhere."
+      }
+    ]
+  },
+  "skillsSection": {
+    "eyebrow": "Capabilities",
+    "title": "The stack and shape can change. The standard stays high.",
+    "description": "Use this section to present the technologies, services, or disciplines you want to be known for."
+  },
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "Express",
+    "Design systems",
+    "UX writing",
+    "Landing pages",
+    "CMS workflows",
+    "Responsive UI",
+    "Accessibility",
+    "Creative direction"
+  ],
+  "projectsSection": {
+    "eyebrow": "Selected work",
+    "title": "Projects that balance presentation with engineering.",
+    "description": "Each project card supports summary copy, detailed context, impact notes, tech tags, and live or code links. Add, remove, and edit them from the admin studio."
+  },
+  "projects": [
+    {
+      "id": "studio-portfolio",
+      "name": "Studio Portfolio System",
+      "year": "2026",
+      "summary": "Converted a static portfolio template into a content-managed site.",
+      "description": "Built a lightweight Express backend, JSON persistence, editable theme tokens, and a vanilla admin dashboard for managing content without touching markup.",
+      "tech": [
+        "Express",
+        "Vanilla JS",
+        "CSS variables",
+        "JSON"
+      ],
+      "liveUrl": "#",
+      "codeUrl": "#",
+      "image": "./assets/mock.png",
+      "featured": true,
+      "impact": "Made copy, project, and theme updates possible in minutes instead of file-by-file edits."
+    },
+    {
+      "id": "launch-campaign",
+      "name": "Launch Campaign Microsite",
+      "year": "2025",
+      "summary": "Shaped a product launch page around messaging clarity and motion.",
+      "description": "Focused on faster scanning, tighter CTA hierarchy, and a cleaner rhythm across mobile and desktop without drifting into generic SaaS patterns.",
+      "tech": [
+        "Brand systems",
+        "Interaction design",
+        "Performance"
+      ],
+      "liveUrl": "#",
+      "codeUrl": "#",
+      "image": "./assets/mock.png",
+      "featured": false,
+      "impact": "Lifted conversion quality by aligning the visual tone with a clearer offer narrative."
+    },
+    {
+      "id": "ops-dashboard",
+      "name": "Operations Dashboard",
+      "year": "2025",
+      "summary": "Designed an internal dashboard for fast team decisions.",
+      "description": "Translated operational noise into a calmer interface with clearer priority framing, denser information design, and fewer dead-end interactions.",
+      "tech": [
+        "Product UI",
+        "Data presentation",
+        "Workflow design"
+      ],
+      "liveUrl": "#",
+      "codeUrl": "#",
+      "image": "./assets/mock.png",
+      "featured": true,
+      "impact": "Reduced time-to-answer for common operational questions by putting the right signals first."
+    }
+  ],
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Need a portfolio, launch page, or frontend refresh that does not feel templated?",
+    "description": "Use the form or reach out directly. Messages are stored by the backend and shown in the admin studio inbox.",
+    "email": "hello@johnanderson.dev",
+    "phone": "+1 (555) 014-7821",
+    "location": "Remote / Worldwide",
+    "availabilityLabel": "Status",
+    "availabilityValue": "Booking work for next month"
+  },
+  "socials": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/"
+    },
+    {
+      "label": "X",
+      "url": "https://x.com/"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:hello@johnanderson.dev"
+    }
+  ],
+  "theme": {
+    "page": "#07111f",
+    "pageAlt": "#0d1730",
+    "surface": "#11203d",
+    "surfaceAlt": "#162a52",
+    "border": "#29416f",
+    "text": "#f5f7ff",
+    "muted": "#9bb0d6",
+    "accent": "#ff7a59",
+    "accentAlt": "#67e4d6"
+  }
+}

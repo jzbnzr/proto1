@@ -1,141 +1,381 @@
-const smMenuBtn = document.querySelector('.main-header__sm-scr-nav-btn')
-const smMenu = document.querySelector('.main-header__sm-menu')
-const smMenuCloseBtn = document.querySelector('.main-header__sm-menu-close')
+const state = {
+  content: null
+};
 
-const smMenuLinks = document.querySelectorAll('.main-header__sm-menu-link')
-const smMenuLink1 = document.querySelector('.main-header__sm-menu-link--1')
-const smMenuLink2 = document.querySelector('.main-header__sm-menu-link--2')
-const smMenuLink3 = document.querySelector('.main-header__sm-menu-link--3')
-const smMenuLink4 = document.querySelector('.main-header__sm-menu-link--4')
+const nav = document.querySelector('.site-nav');
+const navToggle = document.querySelector('.nav-toggle');
+const navBackdrop = document.querySelector('.nav-backdrop');
+const heroActions = document.querySelector('#hero-actions');
+const heroStats = document.querySelector('#hero-stats');
+const heroTags = document.querySelector('#hero-tags');
+const aboutParagraphs = document.querySelector('#about-paragraphs');
+const aboutCards = document.querySelector('#about-cards');
+const skillsList = document.querySelector('#skills-list');
+const projectsGrid = document.querySelector('#projects-grid');
+const socialLinks = document.querySelector('#social-links');
+const contactForm = document.querySelector('#contact-form');
+const contactFormStatus = document.querySelector('#contact-form-status');
+const metaDescription = document.querySelector('meta[name="description"]');
 
-smMenuBtn.addEventListener('click', () => {
-  smMenu.style.transitionDelay = '0s'
-  smMenu.classList.add('main-header__sm-menu--active')
+document.addEventListener('DOMContentLoaded', () => {
+  setupNavigation();
+  setupContactForm();
+  loadContent();
+});
 
-  smMenuLink1.style.transitionDelay = '.5s'
-  smMenuLink1.style.transform = 'translateY(0)'
-  smMenuLink1.style.opacity = '1'
+async function loadContent() {
+  try {
+    const response = await fetch('/api/site-content');
 
-  smMenuLink2.style.transitionDelay = '.8s'
-  smMenuLink2.style.transform = 'translateY(0)'
-  smMenuLink2.style.opacity = '1'
+    if (!response.ok) {
+      throw new Error(`Failed to load content: ${response.status}`);
+    }
 
-  smMenuLink3.style.transitionDelay = '1.1s'
-  smMenuLink3.style.transform = 'translateY(0)'
-  smMenuLink3.style.opacity = '1'
-
-  smMenuLink4.style.transitionDelay = '1.4s'
-  smMenuLink4.style.transform = 'translateY(0)'
-  smMenuLink4.style.opacity = '1'
-})
-
-smMenuLinks.forEach((ele) => {
-  ele.addEventListener('click', () => {
-    smMenuLink4.style.transitionDelay = '0s'
-    smMenuLink4.style.transform = 'translateY(50px)'
-    smMenuLink4.style.opacity = '0'
-
-    smMenuLink3.style.transitionDelay = '.3s'
-    smMenuLink3.style.transform = 'translateY(50px)'
-    smMenuLink3.style.opacity = '0'
-
-    smMenuLink2.style.transitionDelay = '.6s'
-    smMenuLink2.style.transform = 'translateY(50px)'
-    smMenuLink2.style.opacity = '0'
-
-    smMenuLink1.style.transitionDelay = '.9s'
-    smMenuLink1.style.transform = 'translateY(50px)'
-    smMenuLink1.style.opacity = '0'
-
-    smMenu.style.transitionDelay = '1.2s'
-    smMenu.classList.remove('main-header__sm-menu--active')
-
-    setTimeout(() => {
-      document.getElementById(ele.name).scrollIntoView()
-    }, 1300)
-  })
-})
-
-smMenuCloseBtn.addEventListener('click', () => {
-  smMenuLink4.style.transitionDelay = '0s'
-  smMenuLink4.style.transform = 'translateY(50px)'
-  smMenuLink4.style.opacity = '0'
-
-  smMenuLink3.style.transitionDelay = '.3s'
-  smMenuLink3.style.transform = 'translateY(50px)'
-  smMenuLink3.style.opacity = '0'
-
-  smMenuLink2.style.transitionDelay = '.6s'
-  smMenuLink2.style.transform = 'translateY(50px)'
-  smMenuLink2.style.opacity = '0'
-
-  smMenuLink1.style.transitionDelay = '.9s'
-  smMenuLink1.style.transform = 'translateY(50px)'
-  smMenuLink1.style.opacity = '0'
-
-  smMenu.style.transitionDelay = '1.2s'
-  smMenu.classList.remove('main-header__sm-menu--active')
-})
-
-
-
-
-
-// ---
-const themeColorSelector = document.querySelector('.themeClrSelector')
-const themeColorSelectorInput = document.querySelector(
-  '.themeClrSelector__input'
-)
-const root = document.documentElement;
-
-
-
-const hexToRgb = (hex) => {
-  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null
-}
-
-const eventFire = (el, etype) => {
-  if (el.fireEvent) {
-    el.fireEvent('on' + etype)
-  } else {
-    let evObj = document.createEvent('Events')
-    evObj.initEvent(etype, true, false)
-    el.dispatchEvent(evObj)
+    const payload = await response.json();
+    state.content = payload.content;
+    renderContent(payload.content);
+  } catch (error) {
+    console.error(error);
+    contactFormStatus.textContent =
+      'The page could not load its content. Check the server and refresh.';
+    contactFormStatus.dataset.state = 'error';
   }
 }
 
-themeColorSelector.addEventListener('click', () => {
-  eventFire(themeColorSelectorInput, 'input')
-})
-
-const setDynamicColor = (color) => {
-
-  const { r, g, b } = hexToRgb(`${color}`)
-  
-  root.style.setProperty('--themeColor', `${r},${g},${b}`);
-  //localStorage.setItem('color', color)
+function renderContent(content) {
+  updateTextFields(content);
+  updateLinkFields(content);
+  updateMeta(content.meta);
+  applyTheme(content.theme);
+  renderHeroActions(content.hero);
+  renderHeroStats(content.hero.stats);
+  renderList(heroTags, content.hero.spotlightTags, 'li');
+  renderAbout(content.about);
+  renderSkills(content.skills);
+  renderProjects(content.projects);
+  renderSocials(content.socials);
 }
 
-themeColorSelectorInput.addEventListener('input', (e) => {
-  setDynamicColor(e.target.value)
-})
+function updateTextFields(content) {
+  document.querySelectorAll('[data-field]').forEach((element) => {
+    const value = getByPath(content, element.dataset.field);
 
-// if (localStorage.getItem('color')) {
-//   let userSelectedColor = localStorage.getItem('color')
-//   themeColorSelectorInput.value = userSelectedColor
-//   setDynamicColor(userSelectedColor)
-// }
+    if (typeof value === 'string') {
+      element.textContent = value;
+    }
+  });
+}
 
-// ---
-const headerLogoConatiner = document.querySelector('.main-header__logo-container')
+function updateLinkFields(content) {
+  document.querySelectorAll('[data-link-field]').forEach((element) => {
+    const value = getByPath(content, element.dataset.linkField);
 
-headerLogoConatiner.addEventListener('click', () => {
-  location.href = 'index.html'
-})
+    if (typeof value !== 'string' || !value.trim()) {
+      return;
+    }
+
+    const prefix = element.dataset.linkPrefix || '';
+    const href =
+      prefix && !value.startsWith(prefix) ? `${prefix}${value}` : value;
+
+    element.textContent = value;
+    element.href = href;
+  });
+}
+
+function updateMeta(meta) {
+  if (meta?.title) {
+    document.title = meta.title;
+  }
+
+  if (metaDescription && meta?.description) {
+    metaDescription.setAttribute('content', meta.description);
+  }
+}
+
+function renderHeroActions(hero) {
+  heroActions.innerHTML = '';
+
+  [
+    {
+      label: hero.primaryCtaLabel,
+      href: hero.primaryCtaHref,
+      className: 'button button--primary'
+    },
+    {
+      label: hero.secondaryCtaLabel,
+      href: hero.secondaryCtaHref,
+      className: 'button button--secondary'
+    }
+  ].forEach((action) => {
+    if (!action.label || !action.href) {
+      return;
+    }
+
+    heroActions.appendChild(createLink(action.href, action.label, action.className));
+  });
+}
+
+function renderHeroStats(stats) {
+  heroStats.innerHTML = '';
+
+  stats.forEach((stat) => {
+    const wrapper = document.createElement('div');
+    const value = document.createElement('dd');
+    const label = document.createElement('dt');
+
+    value.textContent = stat.value;
+    label.textContent = stat.label;
+
+    wrapper.append(value, label);
+    heroStats.appendChild(wrapper);
+  });
+}
+
+function renderAbout(about) {
+  aboutParagraphs.innerHTML = '';
+  aboutCards.innerHTML = '';
+
+  about.paragraphs.forEach((paragraph) => {
+    const item = document.createElement('p');
+    item.textContent = paragraph;
+    aboutParagraphs.appendChild(item);
+  });
+
+  about.cards.forEach((card) => {
+    const article = document.createElement('article');
+    const title = document.createElement('h3');
+    const description = document.createElement('p');
+
+    article.className = 'about-card';
+    title.textContent = card.title;
+    description.textContent = card.description;
+    article.append(title, description);
+
+    aboutCards.appendChild(article);
+  });
+}
+
+function renderSkills(skills) {
+  skillsList.innerHTML = '';
+
+  skills.forEach((skill) => {
+    const item = document.createElement('span');
+    item.className = 'skill-cloud__item';
+    item.textContent = skill;
+    skillsList.appendChild(item);
+  });
+}
+
+function renderProjects(projects) {
+  projectsGrid.innerHTML = '';
+
+  projects.forEach((project) => {
+    const article = document.createElement('article');
+    article.className = project.featured
+      ? 'project-card project-card--featured'
+      : 'project-card';
+
+    const media = document.createElement('div');
+    media.className = 'project-card__media';
+
+    if (project.image) {
+      const image = document.createElement('img');
+      image.src = project.image;
+      image.alt = `${project.name} preview`;
+      media.appendChild(image);
+    }
+
+    if (project.featured) {
+      const badge = document.createElement('span');
+      badge.className = 'project-card__featured-badge';
+      badge.textContent = 'Featured';
+      media.appendChild(badge);
+    }
+
+    const body = document.createElement('div');
+    body.className = 'project-card__body';
+
+    const meta = document.createElement('div');
+    meta.className = 'project-card__meta';
+    meta.innerHTML = `<span>${project.featured ? 'Featured case' : 'Selected project'}</span><span>${project.year || ''}</span>`;
+
+    const title = document.createElement('h3');
+    title.className = 'project-card__title';
+    title.textContent = project.name;
+
+    const summary = document.createElement('p');
+    summary.className = 'project-card__summary';
+    summary.textContent = project.summary;
+
+    const description = document.createElement('p');
+    description.className = 'project-card__description';
+    description.textContent = project.description;
+
+    const impact = document.createElement('p');
+    impact.className = 'project-card__impact';
+    impact.textContent = project.impact;
+
+    const tags = document.createElement('div');
+    tags.className = 'project-card__tags';
+
+    project.tech.forEach((tech) => {
+      const tag = document.createElement('span');
+      tag.className = 'project-card__tag';
+      tag.textContent = tech;
+      tags.appendChild(tag);
+    });
+
+    const actions = document.createElement('div');
+    actions.className = 'project-card__actions';
+
+    if (project.liveUrl) {
+      actions.appendChild(createLink(project.liveUrl, 'Live project', 'button button--primary'));
+    }
+
+    if (project.codeUrl) {
+      actions.appendChild(createLink(project.codeUrl, 'Source code', 'button button--secondary'));
+    }
+
+    body.append(meta, title, summary, description, impact, tags, actions);
+    article.append(media, body);
+    projectsGrid.appendChild(article);
+  });
+}
+
+function renderSocials(socials) {
+  socialLinks.innerHTML = '';
+
+  socials.forEach((social) => {
+    const link = createLink(social.url, social.label, '');
+    socialLinks.appendChild(link);
+  });
+}
+
+function renderList(container, items, tagName) {
+  container.innerHTML = '';
+
+  items.forEach((item) => {
+    const element = document.createElement(tagName);
+    element.textContent = item;
+    container.appendChild(element);
+  });
+}
+
+function createLink(href, label, className) {
+  const link = document.createElement('a');
+  link.href = href;
+  link.textContent = label;
+
+  if (className) {
+    link.className = className;
+  }
+
+  if (href.startsWith('http')) {
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+  }
+
+  return link;
+}
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  const pageRgb = hexToRgb(theme.page);
+  const accentRgb = hexToRgb(theme.accent);
+  const accentAltRgb = hexToRgb(theme.accentAlt);
+
+  root.style.setProperty('--page', theme.page);
+  root.style.setProperty('--page-alt', theme.pageAlt);
+  root.style.setProperty('--surface', theme.surface);
+  root.style.setProperty('--surface-alt', theme.surfaceAlt);
+  root.style.setProperty('--border', theme.border);
+  root.style.setProperty('--text', theme.text);
+  root.style.setProperty('--muted', theme.muted);
+  root.style.setProperty('--accent', theme.accent);
+  root.style.setProperty('--accent-alt', theme.accentAlt);
+  root.style.setProperty('--page-rgb', pageRgb);
+  root.style.setProperty('--accent-rgb', accentRgb);
+  root.style.setProperty('--accent-alt-rgb', accentAltRgb);
+}
+
+function setupNavigation() {
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navBackdrop.hidden = !isOpen;
+  });
+
+  navBackdrop.addEventListener('click', closeNavigation);
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeNavigation);
+  });
+}
+
+function closeNavigation() {
+  nav.classList.remove('is-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navBackdrop.hidden = true;
+}
+
+function setupContactForm() {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    contactFormStatus.textContent = 'Sending...';
+    contactFormStatus.dataset.state = '';
+
+    const payload = Object.fromEntries(new FormData(contactForm).entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const body = await response.json();
+
+      if (!response.ok) {
+        throw new Error(body.error || 'Something went wrong.');
+      }
+
+      contactForm.reset();
+      contactFormStatus.textContent = body.message;
+      contactFormStatus.dataset.state = 'success';
+    } catch (error) {
+      contactFormStatus.textContent = error.message;
+      contactFormStatus.dataset.state = 'error';
+    }
+  });
+}
+
+function getByPath(object, path) {
+  return path.split('.').reduce((current, key) => {
+    if (current && key in current) {
+      return current[key];
+    }
+
+    return undefined;
+  }, object);
+}
+
+function hexToRgb(hex) {
+  const normalized = hex.replace('#', '');
+  const full =
+    normalized.length === 3
+      ? normalized
+          .split('')
+          .map((part) => part + part)
+          .join('')
+      : normalized;
+
+  const value = Number.parseInt(full, 16);
+  const red = (value >> 16) & 255;
+  const green = (value >> 8) & 255;
+  const blue = value & 255;
+
+  return `${red}, ${green}, ${blue}`;
+}
+

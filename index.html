@@ -1,422 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>WowFolio Studio</title>
+    <meta
+      name="description"
+      content="Editable portfolio website with a built-in admin studio."
+    />
+  </head>
+  <body>
+    <div class="site-bg site-bg--primary" aria-hidden="true"></div>
+    <div class="site-bg site-bg--secondary" aria-hidden="true"></div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css" />
-  <title>WowFolio - A Simple & Clean Portfolio Template For Developers</title>
-  <meta name="description" content="Wowfolio - A Simple & Clean Portfolio Template For Developers" />
-</head>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand__mark" data-field="brand.mark">JA</span>
+        <span class="brand__copy">
+          <span class="brand__name" data-field="brand.name">John Anderson</span>
+          <span class="brand__role" data-field="brand.role">Product Engineer</span>
+        </span>
+      </a>
 
-<body>
-  <header class="main-header">
-    <div class="main-header__logo-container">
-      <div class="main-header__logo-img-cont">
-        <img
-          src="https://d33wubrfki0l68.cloudfront.net/32c48e23e828c42a99a37db81e2a91d7c8eed4de/d134a/assets/png/ram-maheshwari.png"
-          alt="logo Image" class="main-header__logo-img" />
-      </div>
-      <h4 class="main-header__logo-text">John Anderson</h4>
-    </div>
-    <nav class="main-header__navigation">
-      <ul class="main-header__navigation-links">
-        <li class="main-header__navigation-link"><a href="./index.html"> Home </a></li>
-        <li class="main-header__navigation-link"><a href="./index.html#about"> About </a></li>
-        <li class="main-header__navigation-link">
-          <a href="./index.html#projects"> Projects </a>
-        </li>
-        <li class="main-header__navigation-link"><a href="./index.html#contact" href=""> Contact </a></li>
-      </ul>
-    </nav>
-    <div class="main-header__sm-scr-nav-btn">
-      <div class="main-header__sm-scr-nav-btn-line"></div>
-      <div class="main-header__sm-scr-nav-btn-line"></div>
-    </div>
-    <div class="main-header__sm-menu">
-      <div class="main-header__sm-menu-close">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+      </button>
 
-      </div>
-      <ul class="main-header__sm-menu-links">
-        <li>
-          <a class="main-header__sm-menu-link main-header__sm-menu-link--1" name="home-hero">Home</a>
-        </li>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#about" class="site-nav__link">About</a>
+        <a href="#skills" class="site-nav__link">Capabilities</a>
+        <a href="#projects" class="site-nav__link">Projects</a>
+        <a href="#contact" class="site-nav__link">Contact</a>
+        <a href="/admin" class="site-nav__cta">Open Studio</a>
+      </nav>
+    </header>
 
-        <li>
-          <a class="main-header__sm-menu-link main-header__sm-menu-link--2" name="about">About</a>
-        </li>
-        <li>
-          <a class="main-header__sm-menu-link main-header__sm-menu-link--3" name="projects">Projects</a>
-        </li>
-        <li>
-          <a class="main-header__sm-menu-link main-header__sm-menu-link--4" name="contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-    <!-- <button class="btn btn-theme btn-sm">Download CV</button> -->
-  </header>
+    <div class="nav-backdrop" hidden></div>
 
-  <!--Remove or Comment out this theme selector code when you are done with choosing the right color for your theme so this color selector don't appear when you host the site online-->
-  <div class="themeClrSelector">
-    <input placeholder="Color Selector" type="color" value="#1DA1F2" class="themeClrSelector__input" />
-    <img alt="theme color tester" src="https://img.icons8.com/fluent/48/000000/rgb-circle-1.png"
-      class="themeClrSelector__img" />
-  </div>
-  <!---->
+    <main id="top" class="page-shell">
+      <section class="hero section">
+        <div class="hero__copy">
+          <p class="eyebrow" data-field="hero.eyebrow">
+            Portfolio studio with a real backend
+          </p>
+          <h1 class="hero__title" data-field="hero.title">
+            Build a portfolio that is easy to update and hard to ignore.
+          </h1>
+          <p class="hero__description" data-field="hero.description">
+            This version of WowFolio is no longer a frozen HTML template.
+          </p>
+          <div class="hero__actions" id="hero-actions"></div>
+          <dl class="hero__stats" id="hero-stats"></dl>
+        </div>
 
-  <section id="home-hero" class="home-hero">
-    <div class="home-hero__content">
-      <div class="home-hero__info">
-        <h1 class="heading-primary home-hero__heading-primary">
-          <span class="heading-primary__sm"> Hello 👋</span>
-          <span class="heading-primary__main">
-            I'm John Anderson! A Web Developer Building Awesome Webapps And Websites That Powers The Internet
-          </span>
-        </h1>
-        <button class="btn btn-theme home-hero__btn-theme">Projects</button>
-        <button class="btn btn-inv home-hero__btn-theme">Contact</button>
-      </div>
-    </div>
-  </section>
-  <section id="about" class="about main-section">
-    <div class="main-container">
-      <h2 class="heading-secondary projects__heading-secondary">
-        <span class="heading-secondary__sm"> About 🦄</span>
-        <span class="heading-secondary__main">
-          Here you will find more information about me, what I do, and list of my current skills in programming
-      </h2>
-      <div class="main-section__content">
-        <div class="about__info">
-          <div class="about__main-info">
-            <h3 class="heading-quaternary about__heading-quaternary">
-              My Story
-            </h3>
-            <p class="text-primary about__text-primary">
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Error, aliquid! Itaque corrupti magnam fugiat mollitia labore
-                magni saepe veritatis voluptatum alias fugit. Explicabo
-                ducimus sequi aut corporis odio repellendus? Lorem ipsum dolor
-                sit amet
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Error, aliquid! Itaque corrupti magnam fugiat mollitia labore
-                magni saepe veritatis voluptatum alias fugit. Explicabo
-                ducimus sequi aut corporis odio repellendus? Lorem ipsum dolor
-                sit amet
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Error, aliquid! Itaque corrupti magnam fugiat mollitia labore
-                magni saepe veritatis voluptatum alias fugit. Explicabo
-                ducimus sequi aut corporis odio repellendus? Lorem ipsum dolor
-                sit amet
-              </span>
+        <div class="hero__visual">
+          <article class="signal-card">
+            <p class="signal-card__label" data-field="hero.spotlightTitle">
+              Current focus
             </p>
-            <button class="btn btn-theme about__btn-theme">Projects</button>
+            <p class="signal-card__text" data-field="hero.spotlightText">
+              Designing portfolio experiences with cleaner systems underneath.
+            </p>
+            <ul class="signal-card__tags" id="hero-tags"></ul>
+          </article>
+
+          <article class="signal-grid">
+            <div class="signal-grid__item">
+              <span class="signal-grid__label">Location</span>
+              <strong data-field="brand.location">Remote / Worldwide</strong>
+            </div>
+            <div class="signal-grid__item">
+              <span class="signal-grid__label">Availability</span>
+              <strong data-field="brand.availability">
+                Open for selected freelance work
+              </strong>
+            </div>
+            <div class="signal-grid__item signal-grid__item--wide">
+              <span class="signal-grid__label">Intro</span>
+              <strong data-field="brand.intro">
+                I design and ship polished portfolio sites and product pages.
+              </strong>
+            </div>
+          </article>
+
+          <article class="palette-card">
+            <div class="palette-card__top">
+              <p class="palette-card__label">Theme system</p>
+              <span class="palette-card__pill">Editable</span>
+            </div>
+            <div class="palette-card__swatches">
+              <span class="palette-card__swatch palette-card__swatch--page"></span>
+              <span class="palette-card__swatch palette-card__swatch--surface"></span>
+              <span class="palette-card__swatch palette-card__swatch--accent"></span>
+              <span
+                class="palette-card__swatch palette-card__swatch--accent-alt"
+              ></span>
+            </div>
+            <p class="palette-card__text">
+              Update the page, surfaces, text, borders, and accent pair from the
+              admin studio.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="section section--about">
+        <div class="section-heading">
+          <p class="eyebrow" data-field="about.eyebrow">About</p>
+          <h2 class="section-heading__title" data-field="about.title">
+            A sharper portfolio needs sharper systems behind it.
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-grid__copy" id="about-paragraphs"></div>
+          <div class="about-grid__cards" id="about-cards"></div>
+        </div>
+      </section>
+
+      <section id="skills" class="section section--skills">
+        <div class="section-heading">
+          <p class="eyebrow" data-field="skillsSection.eyebrow">Capabilities</p>
+          <h2 class="section-heading__title" data-field="skillsSection.title">
+            The stack and shape can change. The standard stays high.
+          </h2>
+          <p
+            class="section-heading__description"
+            data-field="skillsSection.description"
+          >
+            Use this section to present the technologies or services you want to be
+            known for.
+          </p>
+        </div>
+
+        <div class="skill-cloud" id="skills-list"></div>
+      </section>
+
+      <section id="projects" class="section section--projects">
+        <div class="section-heading">
+          <p class="eyebrow" data-field="projectsSection.eyebrow">
+            Selected work
+          </p>
+          <h2 class="section-heading__title" data-field="projectsSection.title">
+            Projects that balance presentation with engineering.
+          </h2>
+          <p
+            class="section-heading__description"
+            data-field="projectsSection.description"
+          >
+            Each project card supports summary copy, detailed context, impact
+            notes, tech tags, and links.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <section id="contact" class="section section--contact">
+        <div class="contact-panel">
+          <div class="contact-panel__copy">
+            <p class="eyebrow" data-field="contact.eyebrow">Contact</p>
+            <h2 class="section-heading__title" data-field="contact.title">
+              Need a portfolio or frontend refresh that does not feel templated?
+            </h2>
+            <p
+              class="section-heading__description"
+              data-field="contact.description"
+            >
+              Use the form or reach out directly.
+            </p>
+
+            <dl class="contact-list">
+              <div class="contact-list__item">
+                <dt>Email</dt>
+                <dd>
+                  <a
+                    data-link-field="contact.email"
+                    data-link-prefix="mailto:"
+                    href="mailto:hello@johnanderson.dev"
+                  >
+                    hello@johnanderson.dev
+                  </a>
+                </dd>
+              </div>
+              <div class="contact-list__item">
+                <dt>Phone</dt>
+                <dd data-field="contact.phone">+1 (555) 014-7821</dd>
+              </div>
+              <div class="contact-list__item">
+                <dt>Location</dt>
+                <dd data-field="contact.location">Remote / Worldwide</dd>
+              </div>
+              <div class="contact-list__item">
+                <dt data-field="contact.availabilityLabel">Status</dt>
+                <dd data-field="contact.availabilityValue">
+                  Booking work for next month
+                </dd>
+              </div>
+            </dl>
+
+            <div class="social-links" id="social-links"></div>
           </div>
-          <div class="about__skill-info">
-            <h3 class="heading-quaternary about__heading-quaternary">
-              My Skills
-            </h3>
-            <ul class="about__skills">
-              <li class="about__skill">html</li>
-              <li class="about__skill">css</li>
-              <li class="about__skill">javascript</li>
-              <li class="about__skill">react</li>
-              <li class="about__skill">node</li>
-              <li class="about__skill">git</li>
-              <li class="about__skill">vscode</li>
-              <li class="about__skill">linux</li>
-              <li class="about__skill">react</li>
-              <li class="about__skill">node</li>
-              <li class="about__skill">git</li>
-              <li class="about__skill">vscode</li>
-              <li class="about__skill">linux</li>
-              <li class="about__skill">javascript</li>
-              <li class="about__skill">react</li>
-            </ul>
+
+          <div class="contact-panel__form">
+            <form id="contact-form" class="contact-form">
+              <label class="contact-form__field">
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label class="contact-form__field">
+                <span>Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </label>
+              <label class="contact-form__field">
+                <span>Message</span>
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="What are you building and what do you need help with?"
+                  required
+                ></textarea>
+              </label>
+              <button class="button button--primary contact-form__submit" type="submit">
+                Send message
+              </button>
+              <p id="contact-form-status" class="contact-form__status" role="status"></p>
+            </form>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="skills-showcase">
-    <ul class="skills-showcase__list">
-      <li class="skills-showcase__list-item">
-        <i class="devicon-html5-plain"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-css3-plain"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-javascript-plain"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-react-original"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-sass-original"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-nodejs-plain"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-git-plain"></i>
-      </li>
+      </section>
+    </main>
 
-      <li class="skills-showcase__list-item">
-        <i class="devicon-android-plain"></i>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-python-plain"></i>
-      </li>
-    </ul>
-  </section>
-  <section id="projects" class="projects main-section">
-    <div class="main-container">
-      <h2 class="heading-secondary projects__heading-secondary">
-        <span class="heading-secondary__sm"> Projects 🛠️</span>
-        <span class="heading-secondary__main">
-          Here you will find some of the personal and clients projects that I created with the project details
-        </span>
-      </h2>
-      <div class="main-section__content">
-        <div class="projects__list">
-          <div class="projects__list-item">
-            <div class="projects__list-item-count">
-              <span class="projects__list-item-count-num"> 1 </span>
-              <span class="projects__list-item-count-line"> </span>
-              <span class="projects__list-item-count-end-dot"> </span>
-            </div>
-            <div class="projects__list-item-details">
-              <div class="projects__list-item-img-cont">
-                <img src="./assets/mock.png" alt="Project Image" class="projects__list-item-img" />
-              </div>
-              <h3 class="heading-tertiary projects__list-item-heading-tertiary">
-                Project Name
-              </h3>
-              <!-- <hr class="projects__title-text-divider" /> -->
+    <footer class="site-footer">
+      <p class="site-footer__copy">
+        <span data-field="brand.name">John Anderson</span>
+        <span>powered by WowFolio Studio</span>
+      </p>
+      <a class="site-footer__link" href="/admin">Manage content</a>
+    </footer>
 
-              <p class="text-primary projects__list-item-text-primary">
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Error, aliquid! Itaque corrupti magnam fugiat mollitia
-                  labore magni saepe veritatis voluptatum alias fugit.
-                  Explicabo ducimus
-                </span>
-                <!-- <br />
-                  <br /> -->
-                <span>
-                  sapiente aut corporis odio repellendus? Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit
-                </span>
-              </p>
-              <button class="btn btn-theme projects__btn-theme">
-                Live Link
-              </button>
-              <button class="btn btn-inv projects__btn-inv">Code Link</button>
-            </div>
-          </div>
-          <div class="projects__list-item projects__list-item--inv">
-            <div class="projects__list-item-details">
-              <div class="projects__list-item-img-cont">
-                <img src="./assets/mock.png" alt="Project Image" class="projects__list-item-img" />
-              </div>
-              <h3 class="heading-tertiary projects__list-item-heading-tertiary">
-                Project Name
-              </h3>
-              <!-- <hr class="projects__title-text-divider" /> -->
-
-              <p class="text-primary projects__list-item-text-primary">
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Error, aliquid! Itaque corrupti magnam fugiat mollitia
-                  labore magni saepe veritatis voluptatum alias fugit.
-                  Explicabo ducimus
-                </span>
-                <!-- <br />
-                  <br /> -->
-                <span>
-                  sapiente aut corporis odio repellendus? Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit
-                </span>
-              </p>
-              <button class="btn btn-theme projects__btn-theme">
-                Live Link
-              </button>
-              <button class="btn btn-inv projects__btn-inv">Code Link</button>
-            </div>
-            <div class="projects__list-item-count">
-              <span class="projects__list-item-count-num"> 2 </span>
-              <span class="projects__list-item-count-line"> </span>
-              <span class="projects__list-item-count-end-dot"> </span>
-            </div>
-          </div>
-          <div class="projects__list-item">
-            <div class="projects__list-item-count">
-              <span class="projects__list-item-count-num"> 3 </span>
-              <span class="projects__list-item-count-line"> </span>
-              <span class="projects__list-item-count-end-dot"> </span>
-            </div>
-            <div class="projects__list-item-details">
-              <div class="projects__list-item-img-cont">
-                <img src="./assets/mock.png" alt="Project Image" class="projects__list-item-img" />
-              </div>
-              <h3 class="heading-tertiary projects__list-item-heading-tertiary">
-                Project Name
-              </h3>
-              <!-- <hr class="projects__title-text-divider" /> -->
-
-              <p class="text-primary projects__list-item-text-primary">
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Error, aliquid! Itaque corrupti magnam fugiat mollitia
-                  labore magni saepe veritatis voluptatum alias fugit.
-                  Explicabo ducimus
-                </span>
-                <!-- <br />
-                  <br /> -->
-                <span>
-                  sapiente aut corporis odio repellendus? Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit
-                </span>
-              </p>
-              <button class="btn btn-theme projects__btn-theme">
-                Live Link
-              </button>
-              <button class="btn btn-inv projects__btn-inv">Code Link</button>
-            </div>
-          </div>
-          <div class="projects__list-item projects__list-item--inv">
-            <div class="projects__list-item-details">
-              <div class="projects__list-item-img-cont">
-                <img src="./assets/mock.png" alt="Project Image" class="projects__list-item-img" />
-              </div>
-              <h3 class="heading-tertiary projects__list-item-heading-tertiary">
-                Project Name
-              </h3>
-              <!-- <hr class="projects__title-text-divider" /> -->
-
-              <p class="text-primary projects__list-item-text-primary">
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Error, aliquid! Itaque corrupti magnam fugiat mollitia
-                  labore magni saepe veritatis voluptatum alias fugit.
-                  Explicabo ducimus
-                </span>
-                <!-- <br />
-                  <br /> -->
-                <span>
-                  sapiente aut corporis odio repellendus? Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit
-                </span>
-              </p>
-              <button class="btn btn-theme projects__btn-theme">
-                Live Link
-              </button>
-              <button class="btn btn-inv projects__btn-inv">Code Link</button>
-            </div>
-            <div class="projects__list-item-count">
-              <span class="projects__list-item-count-num"> 4 </span>
-              <span class="projects__list-item-count-line"> </span>
-              <span class="projects__list-item-count-end-dot"> </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="contact main-section">
-    <div class="main-container">
-      <h2 class="heading-secondary">
-        <span class="heading-secondary__sm"> Contact 📞</span>
-        <span class="heading-secondary__main">
-          Feel free to Contact me by submitting the form below and I will get back to you as soon as possible
-        </span>
-      </h2>
-      <div class="main-section__content">
-        <div class="contact__form-cont">
-          <form class="contact__form">
-            <div class="contact__form-field">
-              <label for="name" class="contact__form-field-label">Name</label>
-              <input placeholder="Enter Your Name" type="text" class="contact__form-field-input" />
-            </div>
-            <div class="contact__form-field">
-              <label for="name" class="contact__form-field-label">Email</label>
-              <input placeholder="Enter Your Email" type="text" class="contact__form-field-input" />
-            </div>
-            <div class="contact__form-field">
-              <label for="name" class="contact__form-field-label">Message</label>
-              <textarea placeholder="Enter Your Message" name="message" id="" cols="30" rows="10"
-                class="contact__form-field-input"></textarea>
-            </div>
-            <button type="submit" class="contact__form-submit">Submit</button>
-          </form>
-          <div class="contact__form-visual"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer class="main-footer">
-    <div class="main-footer__upper">
-      <div class="main-container">
-        <ul class="main-footer__links">
-          <li class="main-footer__link">
-            <a href="./index.html">Home</a>
-          </li>
-          <li class="main-footer__link">
-            <a href="./index.html#about">About</a>
-          </li>
-          <li class="main-footer__link">
-            <a href="./index.html#projects">Projects</a>
-          </li>
-          <li class="main-footer__link">
-            <a href="./index.html#contact">Contact</a>
-          </li>
-        </ul>
-        <div class="main-footer__mid-line"></div>
-        <div class="main-footer__socials">
-          <a href="#" class="main-footer__social-link">
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/5557d5a11584d7201a38ee1a95200f57a4cc0f88/15085/assets/png/github-ico.png"
-              alt="" class="main-footer__social-link-icon" />
-          </a>
-          <a href="#" class="main-footer__social-link">
-            <img src="./assets/icons8-instagram-48.png" alt="" class="main-footer__social-link-icon" />
-          </a>
-          <a href="#" class="main-footer__social-link">
-            <img src="./assets/icons8-twitter-50.png" alt="" class="main-footer__social-link-icon" />
-          </a>
-          <a href="#" class="main-footer__social-link">
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/7f29579dde49e02480372aa49f7189c5536b0118/34b92/assets/png/linkedin-ico.png"
-              alt="" class="main-footer__social-link-icon" />
-          </a>
-          <a href="#" class="main-footer__social-link">
-            <img src="./assets/icons8-pinterest-64.png" alt="" class="main-footer__social-link-icon" />
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="main-footer__bottom">
-      <div class="main-container">
-        <p class="main-footer__bottom-txt">
-          <!-- If you can give me some credits or shoutout here by linking to my website, then that will help me a lot :) -->
-          <a target="_blank" href="https://github.com/rammcodes/wowfolio">WowFolio</a> Open-Source Template
-          <script>document.write(new Date().getFullYear())</script>. Made by
-          <a target="_blank" href="https://rammaheshwari.com">Ram Maheshwari</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-  <script src="./script.js"></script>
-</body>
-
+    <script src="./script.js"></script>
+  </body>
 </html>
+

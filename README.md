@@ -1,73 +1,51 @@
-# Wowfolio 🦄
+# WowFolio Studio
 
-## A Simple & Clean Portfolio Template For Developers 👨‍💻
+Rebuilt from the original `rammcodes/WowFolio` template into a small full-stack portfolio app.
 
-<div align="center">
-  <img src="https://i.postimg.cc/wMhtzfw7/ezgif-com-gif-maker-1.gif" alt="Wowfolio Demo" width="100%" />
-  <br>
-</div>
+## What Changed
 
-<br/>
+- Static content was replaced with API-driven content rendering.
+- A Node/Express backend now serves the site and persists data to JSON.
+- An admin studio at `/admin` lets you edit:
+  - site copy
+  - hero, about, skills, and contact sections
+  - social links
+  - theme colors
+  - project entries
+- Contact form submissions are stored and shown in the admin inbox.
 
----
+## Stack
 
-<br/>
+- Node.js
+- Express
+- Vanilla HTML, CSS, and JavaScript
+- JSON file persistence
 
-## Test the template with different colours using the colour picker 🎨
+## Run Locally
 
-This is very helpful for you as you can test the template with different
-colours and see which colour fits your needs so you can use that colour for your own website.
-
-<br/>
-
-<div align="center">
-  <img src="https://i.postimg.cc/B6dQ6SSZ/ezgif-com-gif-maker-2.gif" alt="Wowfolio Color Tester" width="100%" />
-  <br>
-</div>
-
-<br/>
-
-**Important Note**: Once you found the perfect colour for your site then just note the RGB value of the colour and then go inside this file called `style.css` on line number **9**, and replace the value of the **--themeColor** variable with your RGB value as shown in the below code example so you can see the colour change in your website.
-
-```css
-:root {
-  --themeColor: 29, 161, 242; /* Theme Color in (R,G,B) format */
-}
+```bash
+npm install
+npm start
 ```
 
-<br/>
+The app runs at:
 
----
+- Public site: `http://127.0.0.1:4174/`
+- Admin studio: `http://127.0.0.1:4174/admin`
 
-<br/>
+## Data Files
 
-## Technologies used 🛠️
+- Site content: [`data/site-content.json`](./data/site-content.json)
+- Contact submissions: [`data/submissions.json`](./data/submissions.json)
 
-- **HTML** 💀
-- **CSS** 🌈
-- **JavaScript** 🧠
+These files are updated by the backend and admin studio.
 
-<br/>
+## Available Scripts
 
----
+- `npm start`: run the production server
+- `npm run dev`: run the server in watch mode
 
-<br/>
+## Notes
 
-## Drop a Star ⭐
-
-If you like this project then drop a **Github** star by pressing the **Star** button ⭐
-
-<br>
-
----
-
-<br>
-
-## Author 👨‍💻
-
-**Ram Maheshwari ⚡**
-
-Support me by giving me a Follow/Subscribe on my Social Accounts 🔥
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/rammcodes) [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/rammcodes) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/rammcodes_) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@rammcodes)
-<br>
+- There is no authentication on `/admin`. That is fine for local use, but if you deploy this publicly you should add auth before exposing it.
+- Project images currently use the bundled [`assets/mock.png`](./assets/mock.png) placeholder by default. You can point project entries to other image paths from the admin studio.

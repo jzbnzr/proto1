@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./admin.css" />
+    <title>WowFolio Studio Admin</title>
+  </head>
+  <body class="studio-body">
+    <header class="studio-header">
+      <div>
+        <p class="studio-header__eyebrow">Admin Studio</p>
+        <h1>Manage portfolio content, projects, and theme tokens.</h1>
+      </div>
+      <div class="studio-header__actions">
+        <a class="studio-button studio-button--ghost" href="/">View site</a>
+        <button id="save-site" class="studio-button studio-button--primary" type="button">
+          Save changes
+        </button>
+      </div>
+    </header>
+
+    <main class="studio-layout">
+      <section class="studio-panel">
+        <div class="studio-panel__header">
+          <h2>Content</h2>
+          <p>Every section on the public site renders from these values.</p>
+        </div>
+
+        <form id="site-form" class="studio-form">
+          <fieldset class="studio-fieldset">
+            <legend>Meta</legend>
+            <label>
+              <span>Page title</span>
+              <input name="meta.title" type="text" />
+            </label>
+            <label>
+              <span>Meta description</span>
+              <textarea name="meta.description" rows="3"></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="studio-fieldset">
+            <legend>Brand</legend>
+            <div class="studio-grid studio-grid--two">
+              <label>
+                <span>Name</span>
+                <input name="brand.name" type="text" />
+              </label>
+              <label>
+                <span>Mark</span>
+                <input name="brand.mark" type="text" maxlength="3" />
+              </label>
+            </div>
+            <label>
+              <span>Role</span>
+              <input name="brand.role" type="text" />
+            </label>
+            <div class="studio-grid studio-grid--two">
+              <label>
+                <span>Location</span>
+                <input name="brand.location" type="text" />
+              </label>
+              <label>
+                <span>Availability</span>
+                <input name="brand.availability" type="text" />
+              </label>
+            </div>
+            <label>
+              <span>Email</span>
+              <input name="brand.email" type="email" />
+            </label>
+            <label>
+              <span>Intro</span>
+              <textarea name="brand.intro" rows="3"></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="studio-fieldset">
+            <legend>Hero</legend>
+            <label>
+              <span>Eyebrow</span>
+              <input name="hero.eyebrow" type="text" />
+            </label>
+            <label>
+              <span>Title</span>
+              <textarea name="hero.title" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Description</span>
+              <textarea name="hero.description" rows="4"></textarea>
+            </label>
+            <div class="studio-grid studio-grid--two">
+              <label>
+                <span>Primary CTA label</span>
+                <input name="hero.primaryCtaLabel" type="text" />
+              </label>
+              <label>
+                <span>Primary CTA href</span>
+                <input name="hero.primaryCtaHref" type="text" />
+              </label>
+            </div>
+            <div class="studio-grid studio-grid--two">
+              <label>
+                <span>Secondary CTA label</span>
+                <input name="hero.secondaryCtaLabel" type="text" />
+              </label>
+              <label>
+                <span>Secondary CTA href</span>
+                <input name="hero.secondaryCtaHref" type="text" />
+              </label>
+            </div>
+            <label>
+              <span>Spotlight title</span>
+              <input name="hero.spotlightTitle" type="text" />
+            </label>
+            <label>
+              <span>Spotlight text</span>
+              <textarea name="hero.spotlightText" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Spotlight tags</span>
+              <textarea name="hero.spotlightTags" rows="4" placeholder="One tag per line"></textarea>
+            </label>
+            <label>
+              <span>Stats</span>
+              <textarea
+                name="hero.stats"
+                rows="4"
+                placeholder="One stat per line in the format Value|Label"
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="studio-fieldset">
+            <legend>About</legend>
+            <label>
+              <span>Eyebrow</span>
+              <input name="about.eyebrow" type="text" />
+            </label>
+            <label>
+              <span>Title</span>
+              <textarea name="about.title" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Paragraphs</span>
+              <textarea
+                name="about.paragraphs"
+                rows="7"
+                placeholder="One paragraph per line"
+              ></textarea>
+            </label>
+            <label>
+              <span>Info cards</span>
+              <textarea
+                name="about.cards"
+                rows="5"
+                placeholder="One card per line in the format Title|Description"
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="studio-fieldset">
+            <legend>Skills and Projects Intro</legend>
+            <label>
+              <span>Skills eyebrow</span>
+              <input name="skillsSection.eyebrow" type="text" />
+            </label>
+            <label>
+              <span>Skills title</span>
+              <textarea name="skillsSection.title" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Skills description</span>
+              <textarea name="skillsSection.description" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Skills</span>
+              <textarea name="skills" rows="6" placeholder="One skill per line"></textarea>
+            </label>
+            <label>
+              <span>Projects eyebrow</span>
+              <input name="projectsSection.eyebrow" type="text" />
+            </label>
+            <label>
+              <span>Projects title</span>
+              <textarea name="projectsSection.title" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Projects description</span>
+              <textarea name="projectsSection.description" rows="3"></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="studio-fieldset">
+            <legend>Contact and Socials</legend>
+            <label>
+              <span>Contact eyebrow</span>
+              <input name="contact.eyebrow" type="text" />
+            </label>
+            <label>
+              <span>Contact title</span>
+              <textarea name="contact.title" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Contact description</span>
+              <textarea name="contact.description" rows="3"></textarea>
+            </label>
+            <div class="studio-grid studio-grid--two">
+              <label>
+                <span>Contact email</span>
+                <input name="contact.email" type="email" />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input name="contact.phone" type="text" />
+              </label>
+            </div>
+            <div class="studio-grid studio-grid--two">
+              <label>
+                <span>Location</span>
+                <input name="contact.location" type="text" />
+              </label>
+              <label>
+                <span>Status label</span>
+                <input name="contact.availabilityLabel" type="text" />
+              </label>
+            </div>
+            <label>
+              <span>Status value</span>
+              <input name="contact.availabilityValue" type="text" />
+            </label>
+            <label>
+              <span>Social links</span>
+              <textarea
+                name="socials"
+                rows="5"
+                placeholder="One social per line in the format Label|URL"
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="studio-fieldset">
+            <legend>Theme</legend>
+            <div class="theme-grid">
+              <label>
+                <span>Page</span>
+                <input class="theme-input" name="theme.page" type="color" />
+              </label>
+              <label>
+                <span>Page alt</span>
+                <input class="theme-input" name="theme.pageAlt" type="color" />
+              </label>
+              <label>
+                <span>Surface</span>
+                <input class="theme-input" name="theme.surface" type="color" />
+              </label>
+              <label>
+                <span>Surface alt</span>
+                <input class="theme-input" name="theme.surfaceAlt" type="color" />
+              </label>
+              <label>
+                <span>Border</span>
+                <input class="theme-input" name="theme.border" type="color" />
+              </label>
+              <label>
+                <span>Text</span>
+                <input class="theme-input" name="theme.text" type="color" />
+              </label>
+              <label>
+                <span>Muted</span>
+                <input class="theme-input" name="theme.muted" type="color" />
+              </label>
+              <label>
+                <span>Accent</span>
+                <input class="theme-input" name="theme.accent" type="color" />
+              </label>
+              <label>
+                <span>Accent alt</span>
+                <input class="theme-input" name="theme.accentAlt" type="color" />
+              </label>
+            </div>
+
+            <div class="theme-preview">
+              <span data-theme-swatch="page"></span>
+              <span data-theme-swatch="surface"></span>
+              <span data-theme-swatch="accent"></span>
+              <span data-theme-swatch="accentAlt"></span>
+            </div>
+          </fieldset>
+        </form>
+
+        <p id="save-status" class="studio-status" role="status"></p>
+      </section>
+
+      <aside class="studio-sidebar">
+        <section class="studio-panel">
+          <div class="studio-panel__header">
+            <h2>Projects</h2>
+            <p>Add, edit, or remove project entries.</p>
+          </div>
+          <div id="project-list" class="project-editor-list"></div>
+          <button id="add-project" class="studio-button studio-button--secondary" type="button">
+            Add project
+          </button>
+        </section>
+
+        <section class="studio-panel">
+          <div class="studio-panel__header">
+            <h2>Inbox</h2>
+            <p>Messages submitted through the public contact form.</p>
+          </div>
+          <div id="submissions-list" class="submission-list"></div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>
+
