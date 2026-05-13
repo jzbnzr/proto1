@@ -64,6 +64,16 @@ function bindEvents() {
 }
 
 function populateForm(content) {
+  const engagement = content.engagement || {
+    eyebrow: '',
+    title: '',
+    description: '',
+    servicesTitle: '',
+    services: [],
+    reasonsTitle: '',
+    reasons: []
+  };
+
   setField('meta.title', content.meta.title);
   setField('meta.description', content.meta.description);
   setField('brand.name', content.brand.name);
@@ -95,6 +105,13 @@ function populateForm(content) {
   setField('projectsSection.eyebrow', content.projectsSection.eyebrow);
   setField('projectsSection.title', content.projectsSection.title);
   setField('projectsSection.description', content.projectsSection.description);
+  setField('engagement.eyebrow', engagement.eyebrow);
+  setField('engagement.title', engagement.title);
+  setField('engagement.description', engagement.description);
+  setField('engagement.servicesTitle', engagement.servicesTitle);
+  setField('engagement.services', engagement.services.join('\n'));
+  setField('engagement.reasonsTitle', engagement.reasonsTitle);
+  setField('engagement.reasons', engagement.reasons.join('\n'));
   setField('contact.eyebrow', content.contact.eyebrow);
   setField('contact.title', content.contact.title);
   setField('contact.description', content.contact.description);
@@ -167,6 +184,15 @@ function collectContent() {
       eyebrow: getField('projectsSection.eyebrow'),
       title: getField('projectsSection.title'),
       description: getField('projectsSection.description')
+    },
+    engagement: {
+      eyebrow: getField('engagement.eyebrow'),
+      title: getField('engagement.title'),
+      description: getField('engagement.description'),
+      servicesTitle: getField('engagement.servicesTitle'),
+      services: splitLines(getField('engagement.services')),
+      reasonsTitle: getField('engagement.reasonsTitle'),
+      reasons: splitLines(getField('engagement.reasons'))
     },
     projects: adminState.projects.map((project) => {
       const { techInput, ...rest } = project;

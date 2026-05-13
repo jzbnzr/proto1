@@ -1,186 +1,246 @@
 {
   "meta": {
-    "title": "John Anderson | Product Engineer",
-    "description": "A bold editable portfolio site with an admin studio, project management, and theme controls."
+    "title": "Ibraaz Raza | Senior Mobile Application Developer",
+    "description": "Senior Mobile Application Developer with 6+ years of experience building scalable iOS, Android, and React Native applications for production products."
   },
   "brand": {
-    "name": "John Anderson",
-    "mark": "JA",
-    "role": "Product Engineer and Frontend Systems Builder",
+    "name": "Ibraaz Raza",
+    "mark": "IR",
+    "role": "Senior Mobile Application Developer",
     "location": "Remote / Worldwide",
-    "availability": "Open for selected freelance work",
-    "email": "hello@johnanderson.dev",
-    "intro": "I design and ship polished portfolio sites, launch pages, and internal tools that feel deliberate from the first screen to the last detail."
+    "availability": "Available for long-term collaborations, contracts, and consulting",
+    "email": "hello@ibraazraza.dev",
+    "intro": "I build scalable, production-ready mobile applications across iOS, Android, and React Native with a strong focus on architecture, performance, and long-term maintainability."
   },
   "hero": {
-    "eyebrow": "Portfolio studio with a real backend",
-    "title": "Build a portfolio that is easy to update and hard to ignore.",
-    "description": "This rebuild turns WowFolio from a static HTML template into a small full-stack portfolio system. The public site renders from structured content, projects can be added from an admin studio, and the full visual direction can be changed through theme tokens instead of editing raw CSS everywhere.",
-    "primaryCtaLabel": "Explore projects",
+    "eyebrow": "iOS • Android • React Native",
+    "title": "Building scalable mobile apps that perform in production.",
+    "description": "I am a Senior Mobile Application Developer with 6+ years of experience helping startups and product teams transform ideas into polished mobile products. My work spans native iOS, native Android, and cross-platform React Native ecosystems with a strong emphasis on clean architecture, modular systems, and release stability.",
+    "primaryCtaLabel": "Explore featured projects",
     "primaryCtaHref": "#projects",
-    "secondaryCtaLabel": "Start a conversation",
+    "secondaryCtaLabel": "Discuss your product",
     "secondaryCtaHref": "#contact",
     "spotlightTitle": "Current focus",
-    "spotlightText": "Designing portfolio experiences with stronger visual direction and cleaner systems underneath: reusable data, persistent content, and enough range to avoid the stock developer-template look.",
+    "spotlightText": "Designing and shipping production-grade mobile systems that balance polished UX with scalable engineering foundations.",
     "spotlightTags": [
-      "Theme controls",
-      "Project management",
-      "Contact inbox",
-      "Responsive layout"
+      "Clean Architecture",
+      "Modular codebases",
+      "Real-time systems",
+      "Production release stability"
     ],
     "stats": [
       {
-        "value": "18+",
-        "label": "Projects launched"
+        "value": "6+",
+        "label": "Years of mobile development"
       },
       {
-        "value": "6",
-        "label": "Years shipping for the web"
+        "value": "3",
+        "label": "Ecosystems: iOS, Android, React Native"
       },
       {
-        "value": "24h",
-        "label": "Typical response window"
+        "value": "End-to-end",
+        "label": "Ownership from concept to deployment"
       }
     ]
   },
   "about": {
     "eyebrow": "About",
-    "title": "A sharper portfolio needs sharper systems behind it.",
+    "title": "Senior mobile engineer with full-cycle product ownership.",
     "paragraphs": [
-      "The original template gave you a clean static page, but every real change still meant editing markup by hand. That becomes friction the moment you want to add new work, rewrite your positioning, or change the tone of the site without touching each section individually.",
-      "This version keeps the footprint small but makes the system practical. Content lives in JSON, the frontend pulls from an API, and the admin studio lets you manage hero copy, section content, socials, contact information, projects, and color tokens from one place.",
-      "The visual design also changed completely: stronger typography, layered gradients, glass surfaces, sharper spacing, and a palette model that controls page, surface, border, text, and dual-accent colors separately."
+      "My development journey began with native iOS engineering using Swift and UIKit, later expanding into SwiftUI for modern interfaces and architecture patterns. As product requirements grew across platforms, I moved into native Android with Kotlin and then React Native to deliver efficiently while preserving native-level quality.",
+      "I have worked across healthcare platforms, social networking products, messaging and media systems, map-based discovery platforms, and SaaS-focused mobile products. This range has strengthened both my implementation depth and my ability to align technical decisions with product goals.",
+      "I collaborate directly with founders, designers, backend teams, and product managers, and I focus on building reliable software that can scale over time instead of short-term implementations that are difficult to maintain."
     ],
     "cards": [
       {
-        "title": "Content control",
-        "description": "Edit profile copy, sections, skills, project cards, and social links from the admin studio."
+        "title": "Native iOS depth",
+        "description": "Swift, UIKit, SwiftUI, StoreKit, Firebase integrations, performance optimization, and App Store release workflows."
       },
       {
-        "title": "Theme control",
-        "description": "Drive the whole interface with theme tokens for surfaces, text, borders, and accent pairs instead of one color picker."
+        "title": "Android + cross-platform delivery",
+        "description": "Kotlin Android development combined with production-grade React Native systems for efficient multi-platform delivery."
       },
       {
-        "title": "Practical backend",
-        "description": "Persist projects and contact submissions locally in JSON through a small Express API that is easy to run anywhere."
+        "title": "Scalable product architecture",
+        "description": "MVVM, Clean Architecture, modular code structures, API abstractions, release management, and long-term maintainability."
       }
     ]
   },
   "skillsSection": {
-    "eyebrow": "Capabilities",
-    "title": "The stack and shape can change. The standard stays high.",
-    "description": "Use this section to present the technologies, services, or disciplines you want to be known for."
+    "eyebrow": "Core expertise",
+    "title": "Mobile engineering across native and cross-platform stacks.",
+    "description": "From architecture planning to production optimization, I build mobile systems designed for stability, scalability, and long-term growth."
   },
   "skills": [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Node.js",
-    "Express",
-    "Design systems",
-    "UX writing",
-    "Landing pages",
-    "CMS workflows",
-    "Responsive UI",
-    "Accessibility",
-    "Creative direction"
+    "Swift",
+    "SwiftUI",
+    "UIKit",
+    "AutoLayout",
+    "SnapKit",
+    "StoreKit",
+    "Kotlin",
+    "Android SDK",
+    "Jetpack Components",
+    "Google Maps SDK",
+    "React Native",
+    "TypeScript",
+    "Java",
+    "Firebase Authentication",
+    "Firestore",
+    "Firebase Storage",
+    "Firebase Cloud Messaging",
+    "Firebase Cloud Functions",
+    "REST APIs",
+    "Stripe integration",
+    "Real-time communication",
+    "MVVM",
+    "Clean Architecture",
+    "Modular Architecture",
+    "Offline-first strategies",
+    "State management systems",
+    "Xcode",
+    "Android Studio",
+    "Git/GitHub",
+    "CI/CD workflows",
+    "Figma collaboration",
+    "Agile workflows"
   ],
   "projectsSection": {
-    "eyebrow": "Selected work",
-    "title": "Projects that balance presentation with engineering.",
-    "description": "Each project card supports summary copy, detailed context, impact notes, tech tags, and live or code links. Add, remove, and edit them from the admin studio."
+    "eyebrow": "Featured projects",
+    "title": "Production applications across social discovery, healthcare, and messaging.",
+    "description": "Selected projects where I handled architecture, mobile implementation, backend integrations, and production performance optimization."
   },
   "projects": [
     {
-      "id": "studio-portfolio",
-      "name": "Studio Portfolio System",
-      "year": "2026",
-      "summary": "Converted a static portfolio template into a content-managed site.",
-      "description": "Built a lightweight Express backend, JSON persistence, editable theme tokens, and a vanilla admin dashboard for managing content without touching markup.",
+      "id": "morepaws",
+      "name": "MorePaws - Social & Discovery Platform for Pet Owners",
+      "year": "Production",
+      "summary": "Map-driven social and discovery platform for pet owners and pet-related businesses.",
+      "description": "Built advanced interactive mapping flows with dynamic marker rendering, viewport-based data fetching, discovery filters, and event-driven user journeys across mobile surfaces.",
       "tech": [
-        "Express",
-        "Vanilla JS",
-        "CSS variables",
-        "JSON"
+        "Swift",
+        "Kotlin",
+        "Google Maps SDK",
+        "Firebase",
+        "UIKit",
+        "RecyclerViews"
       ],
-      "liveUrl": "#",
-      "codeUrl": "#",
+      "liveUrl": "",
+      "codeUrl": "",
       "image": "./assets/mock.png",
       "featured": true,
-      "impact": "Made copy, project, and theme updates possible in minutes instead of file-by-file edits."
+      "impact": "Improved large-scale map performance and responsiveness through caching, dynamic loading, and scalable interaction architecture."
     },
     {
-      "id": "launch-campaign",
-      "name": "Launch Campaign Microsite",
-      "year": "2025",
-      "summary": "Shaped a product launch page around messaging clarity and motion.",
-      "description": "Focused on faster scanning, tighter CTA hierarchy, and a cleaner rhythm across mobile and desktop without drifting into generic SaaS patterns.",
+      "id": "eprescription-mobile-platform",
+      "name": "E-Prescription Mobile Platform",
+      "year": "Production",
+      "summary": "Healthcare-focused platform for digital prescriptions and patient workflow management.",
+      "description": "Planned and implemented a modular React Native architecture with secure authentication, reusable UI systems, scalable API abstractions, and environment-aware configurations.",
       "tech": [
-        "Brand systems",
-        "Interaction design",
-        "Performance"
+        "React Native",
+        "TypeScript",
+        "Zustand",
+        "React Navigation",
+        "Axios",
+        "Firebase",
+        "REST APIs"
       ],
-      "liveUrl": "#",
-      "codeUrl": "#",
+      "liveUrl": "",
+      "codeUrl": "",
+      "image": "./assets/mock.png",
+      "featured": true,
+      "impact": "Delivered maintainable healthcare mobile workflows with role-based access handling and scalable feature organization for long-term growth."
+    },
+    {
+      "id": "messaging-media-platform",
+      "name": "Messaging & Media Platform",
+      "year": "Production",
+      "summary": "Real-time messaging and media-sharing application with scheduling and cloud integrations.",
+      "description": "Engineered messaging architecture, media upload pipelines, scheduled communication flows, authentication systems, and notification handling while optimizing runtime performance.",
+      "tech": [
+        "SwiftUI",
+        "Firebase",
+        "Cloud Functions",
+        "Firestore",
+        "Firebase Storage",
+        "Push Notifications"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
       "image": "./assets/mock.png",
       "featured": false,
-      "impact": "Lifted conversion quality by aligning the visual tone with a clearer offer narrative."
-    },
-    {
-      "id": "ops-dashboard",
-      "name": "Operations Dashboard",
-      "year": "2025",
-      "summary": "Designed an internal dashboard for fast team decisions.",
-      "description": "Translated operational noise into a calmer interface with clearer priority framing, denser information design, and fewer dead-end interactions.",
-      "tech": [
-        "Product UI",
-        "Data presentation",
-        "Workflow design"
-      ],
-      "liveUrl": "#",
-      "codeUrl": "#",
-      "image": "./assets/mock.png",
-      "featured": true,
-      "impact": "Reduced time-to-answer for common operational questions by putting the right signals first."
+      "impact": "Strengthened reliability of real-time communication and media handling through scalable backend integrations and improved client-side performance."
     }
   ],
+  "engagement": {
+    "eyebrow": "Collaboration",
+    "title": "What I can help with and why teams trust my execution.",
+    "description": "I support mobile products from architecture planning to release stability, whether you need a new product build, scaling support, or focused consulting.",
+    "servicesTitle": "What I Can Help With",
+    "services": [
+      "Full-cycle mobile application development",
+      "Native iOS development",
+      "Native Android development",
+      "React Native cross-platform apps",
+      "Mobile architecture planning",
+      "Firebase integrations",
+      "Real-time communication systems",
+      "Messaging and media systems",
+      "Healthcare application workflows",
+      "Map-based application engineering",
+      "App performance optimization",
+      "App Store and Play Store deployment",
+      "Existing app maintenance and scaling",
+      "UI/UX implementation",
+      "Third-party API integrations",
+      "Production issue debugging and optimization"
+    ],
+    "reasonsTitle": "Why Clients Work With Me",
+    "reasons": [
+      "Strong ownership mindset",
+      "Senior-level architecture understanding",
+      "Real-world production experience",
+      "Scalable engineering approach",
+      "Clear communication",
+      "Long-term maintainability focus",
+      "Fast problem-solving capabilities",
+      "Hands-on experience across iOS, Android, and React Native ecosystems"
+    ]
+  },
   "contact": {
     "eyebrow": "Contact",
-    "title": "Need a portfolio, launch page, or frontend refresh that does not feel templated?",
-    "description": "Use the form or reach out directly. Messages are stored by the backend and shown in the admin studio inbox.",
-    "email": "hello@johnanderson.dev",
-    "phone": "+1 (555) 014-7821",
+    "title": "Available for remote opportunities worldwide.",
+    "description": "Open to long-term collaborations, contract projects, startup MVP development, app scaling engagements, team augmentation, and mobile architecture consulting.",
+    "email": "hello@ibraazraza.dev",
+    "phone": "Available on request",
     "location": "Remote / Worldwide",
-    "availabilityLabel": "Status",
-    "availabilityValue": "Booking work for next month"
+    "availabilityLabel": "Availability",
+    "availabilityValue": "Open for long-term, contract, and consulting opportunities"
   },
   "socials": [
     {
-      "label": "GitHub",
-      "url": "https://github.com/"
-    },
-    {
       "label": "LinkedIn",
-      "url": "https://linkedin.com/"
+      "url": "#"
     },
     {
-      "label": "X",
-      "url": "https://x.com/"
+      "label": "GitHub",
+      "url": "#"
     },
     {
       "label": "Email",
-      "url": "mailto:hello@johnanderson.dev"
+      "url": "mailto:hello@ibraazraza.dev"
     }
   ],
   "theme": {
-    "page": "#07111f",
-    "pageAlt": "#0d1730",
-    "surface": "#11203d",
-    "surfaceAlt": "#162a52",
-    "border": "#29416f",
-    "text": "#f5f7ff",
-    "muted": "#9bb0d6",
-    "accent": "#ff7a59",
-    "accentAlt": "#67e4d6"
+    "page": "#061021",
+    "pageAlt": "#0b1a34",
+    "surface": "#11284a",
+    "surfaceAlt": "#173561",
+    "border": "#2d4f87",
+    "text": "#f2f7ff",
+    "muted": "#a5bbdf",
+    "accent": "#1fb6ff",
+    "accentAlt": "#55e6a5"
   }
 }

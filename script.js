@@ -12,6 +12,8 @@ const aboutParagraphs = document.querySelector('#about-paragraphs');
 const aboutCards = document.querySelector('#about-cards');
 const skillsList = document.querySelector('#skills-list');
 const projectsGrid = document.querySelector('#projects-grid');
+const engagementServices = document.querySelector('#engagement-services');
+const engagementReasons = document.querySelector('#engagement-reasons');
 const socialLinks = document.querySelector('#social-links');
 const contactForm = document.querySelector('#contact-form');
 const contactFormStatus = document.querySelector('#contact-form-status');
@@ -53,6 +55,7 @@ function renderContent(content) {
   renderAbout(content.about);
   renderSkills(content.skills);
   renderProjects(content.projects);
+  renderEngagement(content.engagement);
   renderSocials(content.socials);
 }
 
@@ -252,7 +255,20 @@ function renderSocials(socials) {
   });
 }
 
+function renderEngagement(engagement) {
+  if (!engagement) {
+    return;
+  }
+
+  renderList(engagementServices, engagement.services, 'li');
+  renderList(engagementReasons, engagement.reasons, 'li');
+}
+
 function renderList(container, items, tagName) {
+  if (!container || !Array.isArray(items)) {
+    return;
+  }
+
   container.innerHTML = '';
 
   items.forEach((item) => {
@@ -378,4 +394,3 @@ function hexToRgb(hex) {
 
   return `${red}, ${green}, ${blue}`;
 }
-

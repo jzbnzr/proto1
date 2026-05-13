@@ -346,6 +346,7 @@ button {
 .signal-grid,
 .palette-card,
 .about-card,
+.engagement-card,
 .project-card,
 .contact-panel,
 .skill-cloud,
@@ -655,6 +656,53 @@ button {
   gap: 1rem;
 }
 
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.engagement-card {
+  padding: 2.4rem;
+  border-radius: 2.4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03)), var(--surface);
+}
+
+.engagement-card__title {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.4rem;
+}
+
+.engagement-card__list {
+  display: grid;
+  gap: 1rem;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.engagement-card__list li {
+  position: relative;
+  padding: 1.1rem 1.1rem 1.1rem 3rem;
+  border: 1px solid var(--border);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+}
+
+.engagement-card__list li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1.3rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--accent-alt);
+  transform: translateY(-50%);
+}
+
 .contact-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(32rem, 0.85fr);
@@ -788,6 +836,7 @@ button {
 @media (max-width: 1024px) {
   .hero,
   .about-grid,
+  .engagement-grid,
   .contact-panel {
     grid-template-columns: 1fr;
   }

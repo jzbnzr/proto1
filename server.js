@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs/promises');
 const path = require('path');
-const { randomUUID } = require('crypto');
+const { randomUUID, timingSafeEqual } = require('crypto');
 
 const app = express();
 const rootDir = __dirname;
@@ -9,6 +9,8 @@ const dataDir = path.join(rootDir, 'data');
 const siteContentPath = path.join(dataDir, 'site-content.json');
 const submissionsPath = path.join(dataDir, 'submissions.json');
 const port = Number(process.env.PORT) || 4174;
+const adminUsername = process.env.ADMIN_USERNAME || 'jzb';
+const adminPassword = process.env.ADMIN_PASSWORD || 'Tiksom@123';
 
 const defaultTheme = {
   page: '#07111f',
@@ -170,6 +172,33 @@ const defaultContent = {
         'Reduced time-to-answer for common operational questions by putting the right signals first.'
     }
   ],
+  engagement: {
+    eyebrow: 'Collaboration',
+    title: 'What I can help with and why teams trust my execution.',
+    description:
+      'I support mobile products from architecture planning to release stability, whether you need a new product build, scaling support, or focused consulting.',
+    servicesTitle: 'What I Can Help With',
+    services: [
+      'Full-cycle mobile application development',
+      'Native iOS development',
+      'Native Android development',
+      'React Native cross-platform apps',
+      'Mobile architecture planning',
+      'Firebase integrations',
+      'Real-time communication systems',
+      'App performance optimization',
+      'App Store and Play Store deployment'
+    ],
+    reasonsTitle: 'Why Clients Work With Me',
+    reasons: [
+      'Strong ownership mindset',
+      'Senior-level architecture understanding',
+      'Real-world production experience',
+      'Scalable engineering approach',
+      'Clear communication',
+      'Long-term maintainability focus'
+    ]
+  },
   contact: {
     eyebrow: 'Contact',
     title: 'Need a portfolio, launch page, or frontend refresh that does not feel templated?',
@@ -205,6 +234,45 @@ const defaultContent = {
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use('/assets', express.static(path.join(rootDir, 'assets')));
+
+function safeEqual(left, right) {
+  const leftBuffer = Buffer.from(left);
+  const rightBuffer = Buffer.from(right);
+
+  if (leftBuffer.length !== rightBuffer.length) {
+    return false;
+  }
+
+  return timingSafeEqual(leftBuffer, rightBuffer);
+}
+
+function requireAdminAuth(req, res, next) {
+  const authHeader = req.headers.authorization || '';
+  const [scheme, encoded] = authHeader.split(' ');
+
+  if (scheme === 'Basic' && encoded) {
+    try {
+      const decoded = Buffer.from(encoded, 'base64').toString('utf8');
+      const separatorIndex = decoded.indexOf(':');
+      const username =
+        separatorIndex === -1 ? decoded : decoded.slice(0, separatorIndex);
+      const password =
+        separatorIndex === -1 ? '' : decoded.slice(separatorIndex + 1);
+
+      if (
+        safeEqual(username, adminUsername) &&
+        safeEqual(password, adminPassword)
+      ) {
+        return next();
+      }
+    } catch (error) {
+      console.error('Failed to parse admin authorization header.', error);
+    }
+  }
+
+  res.set('WWW-Authenticate', 'Basic realm="WowFolio Admin"');
+  return res.status(401).send('Authentication required.');
+}
 
 function ensureString(value, fallback = '') {
   return typeof value === 'string' ? value : fallback;
@@ -381,6 +449,36 @@ function normalizeContent(content = {}) {
       )
     },
     projects: normalizeProjects(content?.projects),
+    engagement: {
+      eyebrow: ensureString(
+        content?.engagement?.eyebrow,
+        defaultContent.engagement.eyebrow
+      ),
+      title: ensureString(
+        content?.engagement?.title,
+        defaultContent.engagement.title
+      ),
+      description: ensureString(
+        content?.engagement?.description,
+        defaultContent.engagement.description
+      ),
+      servicesTitle: ensureString(
+        content?.engagement?.servicesTitle,
+        defaultContent.engagement.servicesTitle
+      ),
+      services: ensureStringArray(
+        content?.engagement?.services,
+        defaultContent.engagement.services
+      ),
+      reasonsTitle: ensureString(
+        content?.engagement?.reasonsTitle,
+        defaultContent.engagement.reasonsTitle
+      ),
+      reasons: ensureStringArray(
+        content?.engagement?.reasons,
+        defaultContent.engagement.reasons
+      )
+    },
     contact: {
       eyebrow: ensureString(
         content?.contact?.eyebrow,
@@ -452,13 +550,13 @@ function serveFile(res, filename) {
 }
 
 app.get('/', (req, res) => serveFile(res, 'index.html'));
-app.get('/admin', (req, res) => serveFile(res, 'admin.html'));
+app.get('/admin', requireAdminAuth, (req, res) => serveFile(res, 'admin.html'));
 app.get('/index.html', (req, res) => serveFile(res, 'index.html'));
-app.get('/admin.html', (req, res) => serveFile(res, 'admin.html'));
+app.get('/admin.html', requireAdminAuth, (req, res) => serveFile(res, 'admin.html'));
 app.get('/style.css', (req, res) => serveFile(res, 'style.css'));
 app.get('/script.js', (req, res) => serveFile(res, 'script.js'));
-app.get('/admin.css', (req, res) => serveFile(res, 'admin.css'));
-app.get('/admin.js', (req, res) => serveFile(res, 'admin.js'));
+app.get('/admin.css', requireAdminAuth, (req, res) => serveFile(res, 'admin.css'));
+app.get('/admin.js', requireAdminAuth, (req, res) => serveFile(res, 'admin.js'));
 
 app.get(
   '/api/site-content',
@@ -470,6 +568,7 @@ app.get(
 
 app.put(
   '/api/site-content',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const content = normalizeContent(req.body || {});
     await writeJson(siteContentPath, content);
@@ -479,6 +578,7 @@ app.put(
 
 app.get(
   '/api/projects',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const content = await getSiteContent();
     res.json({ projects: content.projects });
@@ -487,6 +587,7 @@ app.get(
 
 app.post(
   '/api/projects',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const content = await getSiteContent();
     const project = normalizeProjects([
@@ -504,6 +605,7 @@ app.post(
 
 app.put(
   '/api/projects/:id',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const content = await getSiteContent();
     const index = content.projects.findIndex(
@@ -530,6 +632,7 @@ app.put(
 
 app.delete(
   '/api/projects/:id',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const content = await getSiteContent();
     const nextProjects = content.projects.filter(
@@ -575,6 +678,7 @@ app.post(
 
 app.get(
   '/api/submissions',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const submissions = await getSubmissions();
     res.json({ submissions });
@@ -583,6 +687,7 @@ app.get(
 
 app.delete(
   '/api/submissions/:id',
+  requireAdminAuth,
   asyncRoute(async (req, res) => {
     const submissions = await getSubmissions();
     const nextSubmissions = submissions.filter(
@@ -620,4 +725,3 @@ bootstrap().catch((error) => {
   console.error(error);
   process.exit(1);
 });
-
