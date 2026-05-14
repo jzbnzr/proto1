@@ -232,9 +232,7 @@ function renderProjects(projects) {
     const actions = document.createElement('div');
     actions.className = 'project-card__actions';
 
-    if (project.liveUrl) {
-      actions.appendChild(createLink(project.liveUrl, 'Live project', 'button button--primary'));
-    }
+    renderProjectStoreLinks(actions, project);
 
     if (project.codeUrl) {
       actions.appendChild(createLink(project.codeUrl, 'Source code', 'button button--secondary'));
@@ -244,6 +242,24 @@ function renderProjects(projects) {
     article.append(media, body);
     projectsGrid.appendChild(article);
   });
+}
+
+function renderProjectStoreLinks(container, project) {
+  const storeLinks = [];
+
+  if (project.playStoreUrl) {
+    storeLinks.push(createStoreLink(project.playStoreUrl, 'play'));
+  }
+
+  if (project.appStoreUrl) {
+    storeLinks.push(createStoreLink(project.appStoreUrl, 'app'));
+  }
+
+  if (storeLinks.length === 0 && project.liveUrl) {
+    storeLinks.push(createStoreLink(project.liveUrl, detectStoreType(project.liveUrl)));
+  }
+
+  storeLinks.forEach((link) => container.appendChild(link));
 }
 
 function renderSocials(socials) {
@@ -293,6 +309,71 @@ function createLink(href, label, className) {
   }
 
   return link;
+}
+
+function createStoreLink(href, type) {
+  const labelMap = {
+    play: 'Play Store',
+    app: 'App Store',
+    live: 'Live Project'
+  };
+
+  const link = createLink(href, '', 'button button--primary project-store-link');
+  const icon = createStoreIcon(type);
+  const label = document.createElement('span');
+
+  label.className = 'project-store-link__label';
+  label.textContent = labelMap[type] || labelMap.live;
+
+  link.append(icon, label);
+  return link;
+}
+
+function createStoreIcon(type) {
+  const icon = document.createElement('span');
+
+  icon.className = 'project-store-link__icon';
+  icon.setAttribute('aria-hidden', 'true');
+
+  if (type === 'play') {
+    icon.classList.add('project-store-link__icon--play');
+    icon.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none"><path d="M6 4L19 12L6 20V4Z" fill="currentColor"/></svg>';
+    return icon;
+  }
+
+  if (type === 'app') {
+    icon.classList.add('project-store-link__icon--app');
+    icon.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none"><path d="M7 18H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 6L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 6L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    return icon;
+  }
+
+  icon.classList.add('project-store-link__icon--live');
+  icon.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/><path d="M12 8V12L15 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  return icon;
+}
+
+function detectStoreType(url) {
+  if (typeof url !== 'string') {
+    return 'live';
+  }
+
+  const normalized = url.toLowerCase();
+
+  if (normalized.includes('play.google.com')) {
+    return 'play';
+  }
+
+  if (
+    normalized.includes('apps.apple.com') ||
+    normalized.includes('itunes.apple.com')
+  ) {
+    return 'app';
+  }
+
+  return 'live';
 }
 
 function applyTheme(theme) {

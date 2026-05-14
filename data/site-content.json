@@ -125,9 +125,11 @@
         "UIKit",
         "RecyclerViews"
       ],
-      "liveUrl": "",
+      "liveUrl": "https://play.google.com/store/apps/details?id=com.unlimitedcoders.morepaws",
       "codeUrl": "",
-      "image": "./assets/mock.png",
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "image": "./assets/morepaws-hero.png",
       "featured": true,
       "impact": "Improved large-scale map performance and responsiveness through caching, dynamic loading, and scalable interaction architecture."
     },
@@ -148,16 +150,18 @@
       ],
       "liveUrl": "",
       "codeUrl": "",
+      "playStoreUrl": "",
+      "appStoreUrl": "",
       "image": "./assets/mock.png",
       "featured": true,
       "impact": "Delivered maintainable healthcare mobile workflows with role-based access handling and scalable feature organization for long-term growth."
     },
     {
       "id": "messaging-media-platform",
-      "name": "Messaging & Media Platform",
+      "name": "Orli: Future Messenger",
       "year": "Production",
-      "summary": "Real-time messaging and media-sharing application with scheduling and cloud integrations.",
-      "description": "Engineered messaging architecture, media upload pipelines, scheduled communication flows, authentication systems, and notification handling while optimizing runtime performance.",
+      "summary": "Future-focused messaging app for scheduling meaningful text, audio, and video deliveries.",
+      "description": "Built and optimized a mobile messaging experience that enables users to schedule personal messages for future delivery over SMS and email, with a strong focus on reliability, UX clarity, and production performance.",
       "tech": [
         "SwiftUI",
         "Firebase",
@@ -168,9 +172,11 @@
       ],
       "liveUrl": "",
       "codeUrl": "",
-      "image": "./assets/mock.png",
+      "playStoreUrl": "",
+      "appStoreUrl": "https://apps.apple.com/us/app/orli-future-messenger/id6747824250",
+      "image": "./assets/orli-appstore-cover.jpg",
       "featured": false,
-      "impact": "Strengthened reliability of real-time communication and media handling through scalable backend integrations and improved client-side performance."
+      "impact": "Shipped a production app with scheduled delivery workflows, media-ready message support, and dependable release quality for real-world user communication scenarios."
     }
   ],
   "engagement": {

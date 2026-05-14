@@ -313,12 +313,22 @@ function renderProjects() {
       </label>
       <div class="studio-grid studio-grid--two">
         <label>
-          <span>Live URL</span>
+          <span>Live URL (fallback)</span>
           <input type="text" data-project-field="liveUrl" data-index="${index}" value="${escapeAttribute(project.liveUrl)}" />
         </label>
         <label>
           <span>Code URL</span>
           <input type="text" data-project-field="codeUrl" data-index="${index}" value="${escapeAttribute(project.codeUrl)}" />
+        </label>
+      </div>
+      <div class="studio-grid studio-grid--two">
+        <label>
+          <span>Play Store URL</span>
+          <input type="text" data-project-field="playStoreUrl" data-index="${index}" value="${escapeAttribute(project.playStoreUrl || '')}" />
+        </label>
+        <label>
+          <span>App Store URL</span>
+          <input type="text" data-project-field="appStoreUrl" data-index="${index}" value="${escapeAttribute(project.appStoreUrl || '')}" />
         </label>
       </div>
       <label>
@@ -371,6 +381,8 @@ function addProject() {
       tech: [],
       liveUrl: '',
       codeUrl: '',
+      playStoreUrl: '',
+      appStoreUrl: '',
       image: './assets/mock.png',
       featured: false,
       impact: ''

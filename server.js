@@ -136,6 +136,8 @@ const defaultContent = {
       tech: ['Express', 'Vanilla JS', 'CSS variables', 'JSON'],
       liveUrl: '#',
       codeUrl: '#',
+      playStoreUrl: '',
+      appStoreUrl: '',
       image: './assets/mock.png',
       featured: true,
       impact:
@@ -151,6 +153,8 @@ const defaultContent = {
       tech: ['Brand systems', 'Interaction design', 'Performance'],
       liveUrl: '#',
       codeUrl: '#',
+      playStoreUrl: '',
+      appStoreUrl: '',
       image: './assets/mock.png',
       featured: false,
       impact:
@@ -166,6 +170,8 @@ const defaultContent = {
       tech: ['Product UI', 'Data presentation', 'Workflow design'],
       liveUrl: '#',
       codeUrl: '#',
+      playStoreUrl: '',
+      appStoreUrl: '',
       image: './assets/mock.png',
       featured: true,
       impact:
@@ -327,6 +333,8 @@ function normalizeProjects(projects = []) {
         tech: ensureStringArray(project?.tech),
         liveUrl: ensureString(project?.liveUrl),
         codeUrl: ensureString(project?.codeUrl),
+        playStoreUrl: ensureString(project?.playStoreUrl),
+        appStoreUrl: ensureString(project?.appStoreUrl),
         image: ensureString(project?.image, './assets/mock.png'),
         featured: Boolean(project?.featured),
         impact: ensureString(project?.impact)
