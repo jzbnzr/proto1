@@ -503,6 +503,11 @@ button {
   background: var(--accent-alt);
 }
 
+/* Guard: hide deprecated theme demo card if stale HTML is cached anywhere. */
+.palette-card {
+  display: none !important;
+}
+
 .section-heading {
   max-width: 78rem;
   margin-bottom: 4rem;
