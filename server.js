@@ -9,6 +9,7 @@ const dataDir = path.join(rootDir, 'data');
 const siteContentPath = path.join(dataDir, 'site-content.json');
 const submissionsPath = path.join(dataDir, 'submissions.json');
 const port = Number(process.env.PORT) || 4174;
+const isVercelRuntime = Boolean(process.env.VERCEL);
 const adminUsername = process.env.ADMIN_USERNAME || 'jzb';
 const adminPassword = process.env.ADMIN_PASSWORD || 'Tiksom@123';
 
@@ -531,10 +532,21 @@ async function readJson(filePath, fallback) {
 }
 
 async function writeJson(filePath, data) {
-  await fs.mkdir(path.dirname(filePath), { recursive: true });
-  const tempFile = `${filePath}.tmp`;
-  await fs.writeFile(tempFile, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
-  await fs.rename(tempFile, filePath);
+  try {
+    await fs.mkdir(path.dirname(filePath), { recursive: true });
+    const tempFile = `${filePath}.tmp`;
+    await fs.writeFile(tempFile, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+    await fs.rename(tempFile, filePath);
+  } catch (error) {
+    if (['EROFS', 'EACCES', 'EPERM', 'ENOTSUP'].includes(error?.code)) {
+      const storageError = new Error('Persistent storage is not writable.');
+      storageError.code = 'READ_ONLY_STORAGE';
+      storageError.cause = error;
+      throw storageError;
+    }
+
+    throw error;
+  }
 }
 
 async function getSiteContent() {
@@ -716,20 +728,33 @@ app.use((req, res) => {
 });
 
 app.use((error, req, res, next) => {
+  if (error?.code === 'READ_ONLY_STORAGE') {
+    return res.status(503).json({
+      error:
+        'This deployment is running in a read-only environment. Data updates are unavailable here.'
+    });
+  }
+
   console.error(error);
   res.status(500).json({ error: 'Internal server error.' });
 });
 
 async function bootstrap() {
-  await writeJson(siteContentPath, await getSiteContent());
-  await writeJson(submissionsPath, await getSubmissions());
+  if (!isVercelRuntime) {
+    await writeJson(siteContentPath, await getSiteContent());
+    await writeJson(submissionsPath, await getSubmissions());
+  }
 
   app.listen(port, () => {
     console.log(`WowFolio Studio running on http://127.0.0.1:${port}`);
   });
 }
 
-bootstrap().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  bootstrap().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = app;
