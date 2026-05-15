@@ -134,29 +134,6 @@
       "impact": "Improved large-scale map performance and responsiveness through caching, dynamic loading, and scalable interaction architecture."
     },
     {
-      "id": "eprescription-mobile-platform",
-      "name": "E-Prescription Mobile Platform",
-      "year": "Production",
-      "summary": "Healthcare-focused platform for digital prescriptions and patient workflow management.",
-      "description": "Planned and implemented a modular React Native architecture with secure authentication, reusable UI systems, scalable API abstractions, and environment-aware configurations.",
-      "tech": [
-        "React Native",
-        "TypeScript",
-        "Zustand",
-        "React Navigation",
-        "Axios",
-        "Firebase",
-        "REST APIs"
-      ],
-      "liveUrl": "",
-      "codeUrl": "",
-      "playStoreUrl": "",
-      "appStoreUrl": "",
-      "image": "./assets/mock.png",
-      "featured": true,
-      "impact": "Delivered maintainable healthcare mobile workflows with role-based access handling and scalable feature organization for long-term growth."
-    },
-    {
       "id": "messaging-media-platform",
       "name": "Orli: Future Messenger",
       "year": "Production",
@@ -350,7 +327,7 @@
   "socials": [
     {
       "label": "LinkedIn",
-      "url": "#"
+      "url": "https://www.linkedin.com/in/ibraaz-raza-768838229/"
     },
     {
       "label": "GitHub",
