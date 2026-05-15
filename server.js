@@ -242,6 +242,23 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use('/assets', express.static(path.join(rootDir, 'assets')));
 
+app.get(/^\/assets\/(.+)$/, (req, res, next) => {
+  const requested = ensureString(req.params?.[0]).trim();
+  const assetsRoot = path.join(rootDir, 'assets');
+  const normalizedPath = path.normalize(requested).replace(/^(\.\.(\/|\\|$))+/, '');
+  const filePath = path.join(assetsRoot, normalizedPath);
+
+  if (!filePath.startsWith(assetsRoot)) {
+    return res.status(400).json({ error: 'Invalid asset path.' });
+  }
+
+  return res.sendFile(filePath, (error) => {
+    if (error) {
+      next(error);
+    }
+  });
+});
+
 function safeEqual(left, right) {
   const leftBuffer = Buffer.from(left);
   const rightBuffer = Buffer.from(right);
