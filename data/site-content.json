@@ -186,7 +186,7 @@
       "description": "Built a mobile routine-tracking experience that helps users log daily health activities, manage reminders, complete wellness check-ins, and review monthly patterns in one structured flow.",
       "tech": [
         "iOS",
-        "Swift",
+        "SwiftUI",
         "Health & Fitness",
         "Apple Health",
         "Notifications"
@@ -206,8 +206,7 @@
       "summary": "Race-day companion app connecting racers with organizers through live schedule and status updates.",
       "description": "Built a cross-platform race operations experience focused on instant communication between race officials and participants, helping users track event status, schedule changes, and critical race-day notifications in real time.",
       "tech": [
-        "iOS",
-        "Android",
+        "React Native",
         "Real-time notifications",
         "Sports operations",
         "Event scheduling"
@@ -228,6 +227,7 @@
       "description": "Built and refined a mobile social safety experience that enables users to share safety signals, coordinate with private groups, monitor friend locations, and receive proactive alerts for safer daily movement and event participation.",
       "tech": [
         "iOS",
+        "UIKit",
         "Social networking",
         "Location safety",
         "Group coordination",
