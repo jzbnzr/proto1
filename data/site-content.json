@@ -177,6 +177,129 @@
       "image": "./assets/orli-appstore-cover.jpg",
       "featured": false,
       "impact": "Shipped a production app with scheduled delivery workflows, media-ready message support, and dependable release quality for real-world user communication scenarios."
+    },
+    {
+      "id": "loop-by-symbyx",
+      "name": "Loop by SYMBYX",
+      "year": "Production",
+      "summary": "Health and wellness routine tracker focused on daily consistency and reflection.",
+      "description": "Built a mobile routine-tracking experience that helps users log daily health activities, manage reminders, complete wellness check-ins, and review monthly patterns in one structured flow.",
+      "tech": [
+        "iOS",
+        "Swift",
+        "Health & Fitness",
+        "Apple Health",
+        "Notifications"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
+      "playStoreUrl": "",
+      "appStoreUrl": "https://apps.apple.com/au/app/loop-by-symbyx/id6746454817",
+      "image": "./assets/loop-appstore-cover.jpg",
+      "featured": false,
+      "impact": "Delivered a clean, habit-friendly mobile experience for routine adherence and wellness tracking with clear daily and monthly visibility."
+    },
+    {
+      "id": "staging-pro",
+      "name": "Staging Pro",
+      "year": "Production",
+      "summary": "Race-day companion app connecting racers with organizers through live schedule and status updates.",
+      "description": "Built a cross-platform race operations experience focused on instant communication between race officials and participants, helping users track event status, schedule changes, and critical race-day notifications in real time.",
+      "tech": [
+        "iOS",
+        "Android",
+        "Real-time notifications",
+        "Sports operations",
+        "Event scheduling"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.stagingpro&hl=en",
+      "appStoreUrl": "https://apps.apple.com/us/app/staging-pro/id6503903450",
+      "image": "./assets/staging-pro-appstore-cover.jpg",
+      "featured": false,
+      "impact": "Improved race-day coordination by providing instant organizer-to-racer communication and reducing missed calls or schedule confusion during live events."
+    },
+    {
+      "id": "mysidekick-social-safety",
+      "name": "MySideKick | Social Safety",
+      "year": "Production",
+      "summary": "Social safety platform focused on live awareness, group visibility, and campus/community safety coordination.",
+      "description": "Built and refined a mobile social safety experience that enables users to share safety signals, coordinate with private groups, monitor friend locations, and receive proactive alerts for safer daily movement and event participation.",
+      "tech": [
+        "iOS",
+        "Social networking",
+        "Location safety",
+        "Group coordination",
+        "Real-time alerts"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
+      "playStoreUrl": "",
+      "appStoreUrl": "https://apps.apple.com/us/app/mysidekick-social-safety/id1500480796",
+      "image": "./assets/mysidekick-appstore-cover.jpg",
+      "featured": false,
+      "impact": "Strengthened campus and community safety engagement through location-aware coordination, anonymous safety reporting, and faster friend-to-friend visibility in high-risk scenarios."
+    },
+    {
+      "id": "rfo-central",
+      "name": "RFO Central",
+      "year": "Production",
+      "summary": "Workflow platform focused on streamlining operational processes for business teams.",
+      "description": "Delivered an implementation centered on practical workflow efficiency, helping teams manage process steps, reduce manual friction, and keep operations aligned through a clearer product experience.",
+      "tech": [
+        "Workflow automation",
+        "Operations management",
+        "Process optimization",
+        "Product UX"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "image": "./assets/rfo-central-cover.svg",
+      "featured": false,
+      "impact": "Improved day-to-day execution by centralizing workflow visibility and reducing operational bottlenecks."
+    },
+    {
+      "id": "punch-construction-platform",
+      "name": "Punch",
+      "year": "Production",
+      "summary": "All-in-one construction operations platform built for renovation and field teams.",
+      "description": "Built a streamlined construction workflow experience that supports scheduling, task coordination, and day-to-day project execution with a simple, operations-first interface.",
+      "tech": [
+        "Construction tech",
+        "Field operations",
+        "Workflow management",
+        "Process tracking"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "image": "./assets/punch-cover.svg",
+      "featured": false,
+      "impact": "Enabled faster construction coordination by reducing fragmentation across planning, communication, and execution flows."
+    },
+    {
+      "id": "total-rehab",
+      "name": "Total Rehab",
+      "year": "Production",
+      "summary": "Digital physiotherapy experience supporting guided rehabilitation and patient progression.",
+      "description": "Delivered a rehab-focused digital product that helps users and care teams track progress, follow structured physiotherapy routines, and improve continuity between sessions.",
+      "tech": [
+        "Digital health",
+        "Physiotherapy",
+        "Rehabilitation tracking",
+        "Health UX"
+      ],
+      "liveUrl": "",
+      "codeUrl": "",
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "image": "./assets/total-rehab-cover.svg",
+      "featured": false,
+      "impact": "Improved rehabilitation consistency by digitizing routine guidance, progress visibility, and engagement touchpoints."
     }
   ],
   "engagement": {

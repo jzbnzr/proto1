@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Total Rehab cover</title>
+  <desc id="desc">Healthcare rehabilitation themed artwork for Total Rehab project</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#052e2b" />
+      <stop offset="100%" stop-color="#134e4a" />
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <circle cx="1450" cy="130" r="210" fill="#99f6e4" fill-opacity="0.18" />
+  <circle cx="170" cy="760" r="240" fill="#5eead4" fill-opacity="0.16" />
+
+  <g>
+    <rect x="180" y="190" width="560" height="320" rx="30" fill="#0f766e" fill-opacity="0.75" />
+    <rect x="215" y="230" width="490" height="46" rx="12" fill="#99f6e4" fill-opacity="0.42" />
+    <rect x="215" y="292" width="440" height="28" rx="10" fill="#99f6e4" fill-opacity="0.32" />
+    <rect x="215" y="338" width="390" height="28" rx="10" fill="#99f6e4" fill-opacity="0.32" />
+    <rect x="215" y="384" width="330" height="28" rx="10" fill="#99f6e4" fill-opacity="0.32" />
+    <rect x="215" y="440" width="200" height="42" rx="12" fill="url(#card)" />
+  </g>
+
+  <g transform="translate(940 170)">
+    <circle cx="220" cy="220" r="220" fill="#0f766e" fill-opacity="0.78" />
+    <path d="M220 120v200M120 220h200" stroke="#ccfbf1" stroke-width="34" stroke-linecap="round" />
+  </g>
+
+  <g fill="#ecfeff">
+    <text x="180" y="780" font-family="Segoe UI, Arial, sans-serif" font-size="88" font-weight="700">Total Rehab</text>
+    <text x="180" y="838" font-family="Segoe UI, Arial, sans-serif" font-size="34" opacity="0.94">Digital physiotherapy and rehabilitation progression</text>
+  </g>
+</svg>
